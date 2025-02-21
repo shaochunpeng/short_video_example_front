@@ -1,0 +1,82 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Sidebar layout */
+.sidebar {
+  width: 240px;
+  background-color: #f1f1f1;
+  padding: 16px;
+  flex-shrink: 0; /* so it doesn't shrink when the window is small */
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  margin-top: 8px;
+  font-size: 1.1rem;
+}
+
+/* Sidebar nav links */
+.nav-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-links a {
+  margin: 8px 0;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Feed area */
+.feed {
+  flex: 1;             /* occupy remaining space */
+  padding: 16px;
+  overflow-y: auto;     /* allow scrolling */
+}
+
+/* VideoCard styling */
+.video-card {
+  margin-bottom: 24px;
+  /* other custom styling */
+}
+
+.video-player {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: black;
+}
+
+.feed-container {
+  flex: 1;           /* If you want it to fill remaining space. */
+  overflow-y: auto;  /* So it scrolls if content is long. */
+  padding: 1rem;
+}
+
+.video-card {
+  position: relative;
+  /* other styles */
+}
+
+.actions-bar {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
