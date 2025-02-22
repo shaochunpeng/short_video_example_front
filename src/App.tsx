@@ -1,13 +1,13 @@
 import React from 'react';
 import Sidebar from './components/Sidebar';
-import Feed from './components/Feed';
+import TikTokVerticalFeed from './components/VerticalFeed';
 import './App.css'; // or your styling approach
 
 function App() {
   return (
     <div className="app-container">
       <Sidebar />
-      <Feed />
+      <TikTokVerticalFeed />
     </div>
   );
 }

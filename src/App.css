@@ -1,15 +1,20 @@
 .app-container {
-  display: flex;
-  min-height: 100vh;
+  display: flex;          /* side-by-side layout */
+  width: 100vw;
+  height: 100vh;
   margin: 0;
+  overflow: hidden;       /* optional, hides any overflow scrollbars */
+}
+
+.app-container::-webkit-scrollbar {
+  display: none;                       /* Chrome, Safari, Opera */
 }
 
 /* Sidebar layout */
 .sidebar {
-  width: 240px;
-  background-color: #f1f1f1;
-  padding: 16px;
-  flex-shrink: 0; /* so it doesn't shrink when the window is small */
+  width: 240px;           /* fixed width for your sidebar */
+  flex-shrink: 0;         /* ensures sidebar won't shrink if space is tight */
+  background: #f1f1f1;
 }
 
 .profile-section {
@@ -26,6 +31,7 @@
 .profile-name {
   margin-top: 8px;
   font-size: 1.1rem;
+  color:black;
 }
 
 /* Sidebar nav links */
@@ -60,12 +66,6 @@
   background: black;
 }
 
-.feed-container {
-  flex: 1;           /* If you want it to fill remaining space. */
-  overflow-y: auto;  /* So it scrolls if content is long. */
-  padding: 1rem;
-}
-
 .video-card {
   position: relative;
   /* other styles */
@@ -79,4 +79,71 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.video-section {
+  position: relative;
+  width: 80%;
+  height: 100vh;          /* fill the entire height of the parent */
+  scroll-snap-align: start;
+  overflow: hidden;       /* so the video doesn’t overflow */
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  color: white;
+  /* Add more styling or icons as needed */
+}
+
+.vertical-feed-container {
+  scroll-snap-type: y mandatory; /* vertical, mandatory snapping */
+  overflow-y: scroll;
+  height: 100vh; 
+  width: 100vw; 
+  margin: 0; 
+  padding: 0;
+  /* no extra padding so each child can fill the screen */
+}
+
+.vertical-feed-container::-webkit-scrollbar {
+  display: none;                       /* Chrome, Safari, Opera */
+}
+
+/* e.g. in App.css or ActionBar.css */
+.action-bar {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px; /* spacing between icons */
+}
+
+.action-bar-item {
+  cursor: pointer;
+  text-align: center;
+  color: white; /* or any color you prefer */
+}
+
+.action-bar-item span {
+  display: block;
+  font-size: 1.9rem;
+  margin-top: 4px;
+}
+
+@media (min-width: 1024px) {
+  .vertical-feed-container {
+    width: calc(100vw - 240px); /* if your sidebar is 240px wide */
+    margin-left: 240px;
+  }
 }
